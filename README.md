@@ -1,4 +1,4 @@
-<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/hero.svg?v=f1140ea1" alt="DaeHyun Kim (@KimDaeHyun00): live GitHub stats in a terminal" />
+<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/hero.svg?v=ead3a349" alt="DaeHyun Kim (@KimDaeHyun00): live GitHub stats in a terminal" />
 
 <br/>
 <br/>
@@ -30,13 +30,13 @@
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/output/snake.svg" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/output/snake-dark.svg" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=00000000" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=00000000" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=00000000" width="100%" />
 </picture>
 
 <!-- SYNC:START -->
-<p align="center"><sub>stats, terminal &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-17</code></sub></p>
+<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-17</code></sub></p>
 <!-- SYNC:END -->
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:E5222B&height=100&section=footer" alt="" />
