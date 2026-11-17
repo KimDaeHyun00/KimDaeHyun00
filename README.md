@@ -3,7 +3,7 @@
 <br/>
 <br/>
 
-<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-work.svg" alt="public work" />
+<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-work.svg?v=2" alt="public work" />
 
 <!-- REPOS:START -->
 <table>
@@ -18,13 +18,13 @@
 
 <br/>
 
-<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-activity.svg" alt="activity" />
+<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-activity.svg?v=2" alt="activity" />
 
 <p align="center">
-  <img height="170" src="https://streak-stats.demolab.com?user=KimDaeHyun00&hide_border=true&background=0D1117&ring=FF3B3B&fire=FF3B3B&currStreakNum=E6EDF3&currStreakLabel=FF3B3B&sideNums=E6EDF3&sideLabels=8B9099&dates=8B9099&stroke=30363D&v=3" alt="streak" />
+  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=00000000" alt="contribution streaks" />
 </p>
 
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=KimDaeHyun00&bg_color=0D1117&color=8B9099&title_color=E6EDF3&line=FF3B3B&point=FFFFFF&area=true&area_color=E5222B&hide_border=true&radius=8&v=2" alt="contribution graph" />
+<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=KimDaeHyun00&bg_color=0D1117&color=8B949E&title_color=E6EDF3&line=C9D1D9&point=F0F6FC&area=true&area_color=6E7681&hide_border=true&radius=8&v=3" alt="contribution graph" />
 
 <br/>
 <br/>
@@ -39,4 +39,4 @@
 <p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-17</code></sub></p>
 <!-- SYNC:END -->
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:E5222B&height=100&section=footer" alt="" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:484F58&height=100&section=footer" alt="" />
