@@ -21,7 +21,7 @@
 <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-activity.svg" alt="activity" />
 
 <p align="center">
-  <img height="170" src="https://streak-stats.demolab.com?user=KimDaeHyun00&hide_border=true&background=0D1117&ring=FF3B3B&fire=FF3B3B&currStreakNum=E6EDF3&currStreakLabel=FF3B3B&sideNums=E6EDF3&sideLabels=8B9099&dates=8B9099&stroke=30363D&v=2" alt="streak" />
+  <img height="170" src="https://streak-stats.demolab.com?user=KimDaeHyun00&hide_border=true&background=0D1117&ring=FF3B3B&fire=FF3B3B&currStreakNum=E6EDF3&currStreakLabel=FF3B3B&sideNums=E6EDF3&sideLabels=8B9099&dates=8B9099&stroke=30363D&v=3" alt="streak" />
 </p>
 
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=KimDaeHyun00&bg_color=0D1117&color=8B9099&title_color=E6EDF3&line=FF3B3B&point=FFFFFF&area=true&area_color=E5222B&hide_border=true&radius=8&v=2" alt="contribution graph" />
