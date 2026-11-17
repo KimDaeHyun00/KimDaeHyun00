@@ -1,0 +1,38 @@
+name: Update profile
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/scripts/render.mjs"
+      - ".github/workflows/update.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Render terminal and repo list
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/render.mjs
+
+      - name: Commit if changed
+        run: |
+          git add README.md assets
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh profile stats"
+          git push
