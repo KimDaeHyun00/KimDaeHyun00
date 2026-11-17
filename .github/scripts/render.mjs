@@ -1,6 +1,6 @@
-// Regenerates assets/hero.svg and the auto sections of README.md from live GitHub data.
-// Runs on GitHub Actions (.github/workflows/update.yml). It only reads public data with the
-// workflow token, so the numbers always match what visitors can already see on the profile.
+// Regenerates the terminal header, the contribution snake and the auto sections of README.md.
+// Runs on GitHub Actions (.github/workflows/update.yml). It reads only what any visitor can
+// already see: the public contribution calendar page and the list of public repositories.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
@@ -118,7 +118,7 @@ function renderRepos(repos) {
 }
 
 function renderSync(dateStr) {
-  return '<p align="center"><sub>stats, terminal &amp; repo list refresh every 6h via GitHub Actions \u00b7 last update: <code>' + dateStr + '</code></sub></p>';
+  return '<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions \u00b7 last update: <code>' + dateStr + '</code></sub></p>';
 }
 
 function replaceBetween(md, key, body) {
@@ -163,6 +163,106 @@ function renderHeroFull(opts) {
   return svg.replace('</svg>', '<g>' + mono.svg + '</g></svg>');
 }
 
+const PALETTES = {
+  dark: { empty: '#161B22', levels: ['#161B22', '#0E4429', '#006D32', '#26A641', '#39D353'], snake: '#FF3B3B' },
+  light: { empty: '#EBEDF0', levels: ['#EBEDF0', '#9BE9A8', '#40C463', '#30A14E', '#216E39'], snake: '#E5222B' },
+};
+
+function gridOf(days) {
+  const offset = new Date(days[0].date + 'T00:00:00Z').getUTCDay();
+  return days.map((d, i) => ({ ...d, col: Math.floor((i + offset) / 7), row: (i + offset) % 7 }));
+}
+
+function snakePath(cells) {
+  const key = (c, r) => c + ':' + r;
+  const targets = cells.filter((c) => c.level > 0);
+  const cols = new Map();
+  for (const t of targets) { if (!cols.has(t.col)) cols.set(t.col, []); cols.get(t.col).push(t); }
+  let pos = { col: cells[0].col, row: cells[0].row };
+  const steps = [{ ...pos }];
+  const eatenAt = new Map();
+  const want = new Set(targets.map((t) => key(t.col, t.row)));
+  const tryEat = () => {
+    const k = key(pos.col, pos.row);
+    if (want.has(k) && !eatenAt.has(k)) eatenAt.set(k, steps.length - 1);
+  };
+  tryEat();
+  for (const col of [...cols.keys()].sort((a, b) => a - b)) {
+    const rows = cols.get(col).map((t) => t.row).sort((a, b) => a - b);
+    const down = Math.abs(pos.row - rows[0]) <= Math.abs(pos.row - rows[rows.length - 1]);
+    for (const row of down ? rows : rows.slice().reverse()) {
+      while (pos.col !== col) { pos = { col: pos.col + Math.sign(col - pos.col), row: pos.row }; steps.push({ ...pos }); tryEat(); }
+      while (pos.row !== row) { pos = { col: pos.col, row: pos.row + Math.sign(row - pos.row) }; steps.push({ ...pos }); tryEat(); }
+    }
+  }
+  return { steps, eatenAt };
+}
+
+function renderSnake(days, theme) {
+  const P = PALETTES[theme];
+  const cells = gridOf(days);
+  const { steps, eatenAt } = snakePath(cells);
+  const STEP = 16, CELL = 12, PAD = 16;
+  const cols = Math.max(...cells.map((c) => c.col)) + 1;
+  const W = PAD * 2 + cols * STEP - (STEP - CELL);
+  const H = PAD * 2 + 7 * STEP - (STEP - CELL);
+  const moves = Math.max(1, steps.length - 1);
+  const stepDur = Math.min(0.09, Math.max(0.03, 20 / moves));
+  const Tmove = moves * stepDur;
+  const T = Tmove + 2.2;
+  const cx = (c) => PAD + c * STEP + CELL / 2;
+  const cy = (r) => PAD + r * STEP + CELL / 2;
+  const css = [], rects = [];
+  cells.forEach((c, i) => {
+    const x = PAD + c.col * STEP, y = PAD + c.row * STEP;
+    const k = c.col + ':' + c.row;
+    if (c.level > 0 && eatenAt.has(k)) {
+      const p = (eatenAt.get(k) * stepDur) / T * 100;
+      const col = P.levels[c.level];
+      css.push('@keyframes k' + i + '{0%,' + p.toFixed(2) + '%{fill:' + col + '}' + (p + 0.05).toFixed(2) + '%,99.7%{fill:' + P.empty + '}100%{fill:' + col + '}}' +
+        '.k' + i + '{animation:k' + i + ' ' + T.toFixed(2) + 's linear infinite}');
+      rects.push('<rect class="k' + i + '" x="' + x + '" y="' + y + '" width="' + CELL + '" height="' + CELL + '" rx="2.5" fill="' + col + '"/>');
+    } else {
+      rects.push('<rect x="' + x + '" y="' + y + '" width="' + CELL + '" height="' + CELL + '" rx="2.5" fill="' + P.empty + '"/>');
+    }
+  });
+  const d = 'M' + steps.map((s) => cx(s.col) + ' ' + cy(s.row)).join('L');
+  const segs = [];
+  const N = 5;
+  for (let k = N - 1; k >= 0; k--) {
+    const size = CELL - k * 1.5;
+    const lag = k * stepDur;
+    const kt = ['0', (lag / T).toFixed(4), ((Tmove + lag) / T).toFixed(4), '1'].join(';');
+    segs.push('<rect x="' + (-size / 2) + '" y="' + (-size / 2) + '" width="' + size + '" height="' + size + '" rx="' + (k === 0 ? 4 : 3) + '" fill="' + P.snake + '" opacity="' + (1 - k * 0.13).toFixed(2) + '">' +
+      '<animateMotion dur="' + T.toFixed(2) + 's" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;1;1" keyTimes="' + kt + '"><mpath href="#sp"/></animateMotion></rect>');
+  }
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="contribution snake">' +
+    '<style>' + css.join('') + '</style>' +
+    '<path id="sp" d="' + d + '" fill="none" stroke="none"/>' +
+    rects.join('') + segs.join('') + '</svg>';
+}
+
+function parseCalendarHtml(html) {
+  const idToDay = new Map();
+  for (const m of html.matchAll(/<td\b[^>]*>/g)) {
+    const tag = m[0];
+    const date = (tag.match(/data-date="(\d{4}-\d{2}-\d{2})"/) || [])[1];
+    const id = (tag.match(/\bid="([^"]+)"/) || [])[1];
+    const level = Number((tag.match(/data-level="(\d)"/) || [])[1] || 0);
+    if (date && id) idToDay.set(id, { date, level, count: 0 });
+  }
+  for (const m of html.matchAll(/<tool-tip\b[^>]*\bfor="([^"]+)"[^>]*>([^<]*)<\/tool-tip>/g)) {
+    const day = idToDay.get(m[1]);
+    if (!day) continue;
+    const n = m[2].trim().match(/^([\d,]+)\s+contribution/);
+    day.count = n ? Number(n[1].replace(/,/g, '')) : 0;
+  }
+  const days = [...idToDay.values()].sort((a, b) => a.date.localeCompare(b.date));
+  const totalM = html.match(/([\d,]+)\s+contributions?\s+in the last year/);
+  const total = totalM ? Number(totalM[1].replace(/,/g, '')) : days.reduce((s, d) => s + d.count, 0);
+  return { days, total };
+}
+
 const QUERY = `query($login: String!) {
   user(login: $login) {
     name
@@ -171,7 +271,7 @@ const QUERY = `query($login: String!) {
     contributionsCollection {
       contributionCalendar {
         totalContributions
-        weeks { contributionDays { date contributionCount } }
+        weeks { contributionDays { date contributionCount contributionLevel } }
       }
     }
     repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC, isFork: false, orderBy: {field: PUSHED_AT, direction: DESC}) {
@@ -179,6 +279,7 @@ const QUERY = `query($login: String!) {
     }
   }
 }`;
+const LEVEL = { NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 };
 
 async function gql(query, variables) {
   const res = await fetch('https://api.github.com/graphql', {
@@ -195,15 +296,38 @@ async function gql(query, variables) {
   return json.data;
 }
 
+// The public calendar page is exactly what visitors see on the profile (private repos only
+// appear there as anonymized daily counts, and only because Private contributions is on).
+async function publicCalendar() {
+  const res = await fetch('https://github.com/users/' + USER + '/contributions', { headers: { 'User-Agent': USER + '-profile-readme' } });
+  if (!res.ok) throw new Error('calendar HTTP ' + res.status);
+  const cal = parseCalendarHtml(await res.text());
+  if (cal.days.length < 300) throw new Error('calendar parse failed: ' + cal.days.length + ' days');
+  return cal;
+}
+
+const hash8 = (s) => createHash('sha1').update(s).digest('hex').slice(0, 8);
+function readOr(file, fallback) {
+  try { return readFileSync(file, 'utf8'); } catch { return fallback; }
+}
+
 async function main() {
   const { user } = await gql(QUERY, { login: USER });
-  const cal = user.contributionsCollection.contributionCalendar;
-  const days = cal.weeks
-    .flatMap((w) => w.contributionDays)
-    .map((d) => ({ date: d.date, count: d.contributionCount }))
-    .sort((a, b) => a.date.localeCompare(b.date));
-  const stats = computeStats(days);
-  stats.total = cal.totalContributions;
+  let cal;
+  try {
+    cal = await publicCalendar();
+    console.log('calendar: public profile page,', cal.total, 'contributions');
+  } catch (e) {
+    console.log('calendar: falling back to GraphQL:', e.message);
+    const g = user.contributionsCollection.contributionCalendar;
+    const days = g.weeks
+      .flatMap((w) => w.contributionDays)
+      .map((d) => ({ date: d.date, count: d.contributionCount, level: LEVEL[d.contributionLevel] || 0 }))
+      .sort((a, b) => a.date.localeCompare(b.date));
+    cal = { days, total: g.totalContributions };
+  }
+  const stats = computeStats(cal.days);
+  stats.total = cal.total;
   const repos = user.repositories.nodes
     .filter((r) => !EXCLUDE.has(r.name))
     .sort((a, b) => b.stargazerCount - a.stargazerCount || b.pushedAt.localeCompare(a.pushedAt))
@@ -216,20 +340,25 @@ async function main() {
       language: r.primaryLanguage ? r.primaryLanguage.name : '',
     }));
 
-  const hero = renderHeroFull({ name: user.name || USER, login: user.login, since: user.createdAt.slice(0, 4), stats, repos });
-  let oldHero = '';
-  try { oldHero = readFileSync('assets/hero.svg', 'utf8'); } catch {}
+  const files = {
+    'assets/hero.svg': renderHeroFull({ name: user.name || USER, login: user.login, since: user.createdAt.slice(0, 4), stats, repos }),
+    'assets/snake-dark.svg': renderSnake(cal.days, 'dark'),
+    'assets/snake-light.svg': renderSnake(cal.days, 'light'),
+  };
   const oldMd = readFileSync('README.md', 'utf8');
   let md = replaceBetween(oldMd, 'REPOS', renderRepos(repos));
-  const v = createHash('sha1').update(hero).digest('hex').slice(0, 8);
-  md = md.replace(/hero\.svg\?v=[0-9a-f]+/, 'hero.svg?v=' + v);
-  if (hero === oldHero && md === oldMd) {
+  for (const [file, svg] of Object.entries(files)) {
+    const base = file.split('/').pop();
+    md = md.replace(new RegExp(base.replace('.', '\\.') + '\\?v=[0-9a-f]+', 'g'), base + '?v=' + hash8(svg));
+  }
+  const changed = md !== oldMd || Object.entries(files).some(([f, s]) => readOr(f, '') !== s);
+  if (!changed) {
     console.log('no changes', JSON.stringify(stats));
     return;
   }
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Seoul' });
   md = replaceBetween(md, 'SYNC', renderSync(today));
-  writeFileSync('assets/hero.svg', hero);
+  for (const [f, s] of Object.entries(files)) writeFileSync(f, s);
   writeFileSync('README.md', md);
   console.log('updated', JSON.stringify(stats), repos.map((r) => r.name).join(', '));
 }
