@@ -1,4 +1,4 @@
-<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/hero.svg?v=d2f71006" alt="DaeHyun Kim (@KimDaeHyun00): live GitHub stats in a terminal" />
+<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/hero.svg?v=47f40d2f" alt="DaeHyun Kim (@KimDaeHyun00): live GitHub stats in a terminal" />
 
 <br/>
 <br/>
@@ -21,7 +21,7 @@
 <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-activity.svg?v=2" alt="activity" />
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=70a1c7eb" alt="contribution streaks" />
+  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=8b2950b0" alt="contribution streaks" />
 </p>
 
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=KimDaeHyun00&bg_color=0D1117&color=8B949E&title_color=E6EDF3&line=C9D1D9&point=F0F6FC&area=true&area_color=6E7681&hide_border=true&radius=8&v=3" alt="contribution graph" />
@@ -30,9 +30,9 @@
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=acf5d4a3" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=2d015ae9" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=acf5d4a3" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=13ee0a4e" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=38511a9f" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=13ee0a4e" width="100%" />
 </picture>
 
 <!-- SYNC:START -->
