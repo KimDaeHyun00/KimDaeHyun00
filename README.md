@@ -21,7 +21,7 @@
 <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-activity.svg?v=2" alt="activity" />
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=a4be5d00" alt="contribution streaks" />
+  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=8f67b238" alt="contribution streaks" />
 </p>
 
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=KimDaeHyun00&bg_color=0D1117&color=8B949E&title_color=E6EDF3&line=C9D1D9&point=F0F6FC&area=true&area_color=6E7681&hide_border=true&radius=8&v=3" alt="contribution graph" />
@@ -30,13 +30,13 @@
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=237a4212" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=238372b2" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=237a4212" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=6b623690" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=9a7c2971" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=6b623690" width="100%" />
 </picture>
 
 <!-- SYNC:START -->
-<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-21</code></sub></p>
+<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-22</code></sub></p>
 <!-- SYNC:END -->
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:484F58&height=100&section=footer" alt="" />
