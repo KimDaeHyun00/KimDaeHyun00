@@ -30,13 +30,13 @@
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=6b623690" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=9a7c2971" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=6b623690" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=7129a265" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=f78115d1" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=7129a265" width="100%" />
 </picture>
 
 <!-- SYNC:START -->
-<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-22</code></sub></p>
+<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-23</code></sub></p>
 <!-- SYNC:END -->
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:484F58&height=100&section=footer" alt="" />
