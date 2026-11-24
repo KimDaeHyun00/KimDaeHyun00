@@ -30,9 +30,9 @@
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=97e9d40a" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=a12f7831" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=97e9d40a" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=f916955e" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=1fd3c518" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=f916955e" width="100%" />
 </picture>
 
 <!-- SYNC:START -->
