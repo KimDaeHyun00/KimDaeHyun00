@@ -1,4 +1,4 @@
-<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/hero.svg?v=a17e74f0" alt="DaeHyun Kim (@KimDaeHyun00): live GitHub stats in a terminal" />
+<img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/hero.svg?v=047bb19d" alt="DaeHyun Kim (@KimDaeHyun00): live GitHub stats in a terminal" />
 
 <br/>
 <br/>
@@ -21,7 +21,7 @@
 <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/section-activity.svg?v=2" alt="activity" />
 
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=855b0f20" alt="contribution streaks" />
+  <img width="100%" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/streak.svg?v=336a7e1e" alt="contribution streaks" />
 </p>
 
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=KimDaeHyun00&bg_color=0D1117&color=8B949E&title_color=E6EDF3&line=C9D1D9&point=F0F6FC&area=true&area_color=6E7681&hide_border=true&radius=8&v=3" alt="contribution graph" />
@@ -30,13 +30,13 @@
 <br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=1d3cf638" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=d7647fc6" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=1d3cf638" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=2540ccac" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-light.svg?v=433a3a16" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/KimDaeHyun00/KimDaeHyun00/main/assets/snake-dark.svg?v=2540ccac" width="100%" />
 </picture>
 
 <!-- SYNC:START -->
-<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-25</code></sub></p>
+<p align="center"><sub>terminal, snake &amp; repo list refresh every 6h via GitHub Actions · last update: <code>2026-11-26</code></sub></p>
 <!-- SYNC:END -->
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,100:484F58&height=100&section=footer" alt="" />
